@@ -1,5 +1,5 @@
 Bootstrap: shub
-From: coreyjadams/larcv2-singularity:centos7-cpu-torch1.0rc
+From: coreyjadams/larcv2-singularity:centos7-cpu-torch
 
 #Bootstrap: localimage
 #From: /home/cadams/DeepLearnPhysics/larcv2-singularity/centos7-cpu-torch1.0rc
@@ -18,7 +18,7 @@ singularity exec THIS_CONTAINER.simg bash
 
 %labels
 Maintainer coreyjadams
-Version centos7-cpu-1.0rc-mpich3.2.1
+Version centos7-cpu-torch1.0rc-mpich3.2.1
 
 #------------
 # Global installation

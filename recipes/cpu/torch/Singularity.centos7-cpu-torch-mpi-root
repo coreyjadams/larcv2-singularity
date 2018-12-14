@@ -1,5 +1,5 @@
 Bootstrap: shub
-From: coreyjadams/larcv2-singularity:centos7-cpu-torch1.0rc-mpich3.2.1
+From: coreyjadams/larcv2-singularity:centos7-cpu-torch-mpi
 
 #Bootstrap: localimage
 #From: /home/cadams/DeepLearnPhysics/larcv2-singularity/centos7-cpu-torch1.0rc-mpich3.2.1
