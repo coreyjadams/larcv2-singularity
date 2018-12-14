@@ -1,8 +1,8 @@
-#Bootstrap: shub
-#From: coreyjadams/larcv2-singularity:centos7-cuda-torchnightly-mpich3.2.1
+Bootstrap: shub
+From: coreyjadams/larcv2-singularity:centos7-cuda-torchnightly-mpich3.2.1
 
-Bootstrap: localimage
-From: /home/cadams/DeepLearnPhysics/larcv2-singularity/centos7-cuda-torchnightly-mpich3.2.1
+#Bootstrap: localimage
+#From: /home/cadams/DeepLearnPhysics/larcv2-singularity/centos7-cuda-torchnightly-mpich3.2.1
 
 
 %help
