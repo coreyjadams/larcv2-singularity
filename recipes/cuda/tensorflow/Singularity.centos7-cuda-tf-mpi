@@ -1,9 +1,6 @@
 Bootstrap: shub
 From: coreyjadams/larcv2-singularity:centos7-cuda-tf
 
-#Bootstrap: localimage
-#From: /home/cadams/DeepLearnPhysics/larcv2-singularity/centos7-tf1.12.0
-
 
 %help
 Centos7 with cuda9.0 cudnn7
