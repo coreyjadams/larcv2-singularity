@@ -1,11 +1,10 @@
 Bootstrap: docker
-From: intelaipg/intel-optimized-tensorflow:nightly-devel-mkl-py3
-
+From: centos
 
 %help
 Centos7 with mkl_dnn tensorflow
 ML/DL packages  : tensorflow sc-learn
-Sci.  packages  : numpy pandas sc-image matplotlib opencv-python
+Sci.  packages  : numpy pandas sc-image matplotlib opencv-python cern-root
 Basic python    : ipython jupyter yaml pygments six zmq wheel h5py tqdm
 Development kit : g++/gcc cython libqt4-dev python-dev
 Utility kit     : git wget emacs vim openssh-client
@@ -15,25 +14,54 @@ singularity exec THIS_CONTAINER.simg bash
 
 %labels
 Maintainer coreyjadams
-Version centos7-mkldnn-tfnightly
+Version centos7-devel-base
 
 #------------
 # Global installation
 #------------
 %environment
-    
+    source scl_source enable devtoolset-4
+
+    # for ROOT
+    export ROOTSYS=/usr/local/root
+    export PATH=${ROOTSYS}/bin:${PATH}
+    export PYTHONPATH=${ROOTSYS}/lib:${PYTHONPATH}
+    export LD_LIBRARY_PATH=/usr/local/root/lib/:$LD_LIBRARY_PATH
+
 
 %post
     
-    
-    
+    # yum basics
+    yum update -y
+    yum groupinstall -y "Development Tools"
+    yum install -y epel-release
+    yum install -y centos-release-scl
+    yum install -y devtoolset-4
+    scl enable devtoolset-4 bash
+
+    # source scl_source enable devtoolset-4
+    yum install -y wget emacs vim 
+    yum install -y emacs vim openssh-clients zip 
+    yum install -y python-devel python-pip python-setuptools
+    yum install -y hdf5
+
+
     # pip basics
     pip --no-cache-dir --disable-pip-version-check install --upgrade setuptools 
-    pip --no-cache-dir --disable-pip-version-check install pyyaml cython psutil humanize tqdm scipy seaborn tables
-    pip --no-cache-dir --disable-pip-version-check install scikit-image Pillow opencv-python
-    pip --no-cache-dir --disable-pip-version-check install jupyter notebook
+    pip --no-cache-dir --disable-pip-version-check install numpy wheel zmq six pygments pyyaml cython gputil psutil humanize h5py tqdm scipy tables
+    pip --no-cache-dir --disable-pip-version-check install  pandas scikit-image scikit-learn Pillow opencv-python
+    # pip --no-cache-dir --disable-pip-version-check install jupyter notebook
+
+    # ROOT
+    wget https://root.cern.ch/download/root_v6.14.04.Linux-centos7-x86_64-gcc4.8.tar.gz
+    tar -xzf root_v6.14.04.Linux-centos7-x86_64-gcc4.8.tar.gz
+    rm root_v6.14.04.Linux-centos7-x86_64-gcc4.8.tar.gz
+    mv root /usr/local/root
+    export ROOTSYS=/usr/local/root
+    export PATH=${ROOTSYS}/bin:${PATH}
+    export LD_LIBRARY_PATH=${ROOTSYS}/lib:${LD_LIBRARY_PATH}
+    export PYTHONPATH=${ROOTSYS}/lib:${PYTHONPATH}
 
 
-    # Intel includes tensorflow, but not keras:
-    # keras
-    pip --no-cache-dir --disable-pip-version-check install keras
+
+
