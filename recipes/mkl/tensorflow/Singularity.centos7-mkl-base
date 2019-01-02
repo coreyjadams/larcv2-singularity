@@ -63,5 +63,9 @@ Version centos7-devel-base
     export PYTHONPATH=${ROOTSYS}/lib:${PYTHONPATH}
 
 
-
+    # This adds bazel to the build (needed for installing tensorflow from source):
+    wget https://copr.fedorainfracloud.org/coprs/vbatts/bazel/repo/epel-7/vbatts-bazel-epel-7.repo
+    cp vbatts-bazel-epel-7.repo /etc/yum.repos.d/
+    yum install -y bazel
+    pip --no-cache-dir --disable-pip-version-check install --no-deps keras-preprocessing keras-applications
 
