@@ -21,7 +21,7 @@ singularity exec --nv THIS_CONTAINER.simg bash
 
 %labels
 Maintainer coreyjadams
-Version centos7-cuda-torchnightly-mpich3.2.1
+Version centos7-cuda-torchnightly-mpich
 
 #------------
 # Global installation

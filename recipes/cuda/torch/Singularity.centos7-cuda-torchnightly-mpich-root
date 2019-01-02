@@ -1,8 +1,8 @@
 Bootstrap: shub
-From: coreyjadams/larcv2-singularity:centos7-cuda-torchnightly-mpich3.2.1
+From: coreyjadams/larcv2-singularity:centos7-cuda-torchnightly-mpich
 
 #Bootstrap: localimage
-#From: /home/cadams/DeepLearnPhysics/larcv2-singularity/centos7-cuda-torchnightly-mpich3.2.1
+#From: /home/cadams/DeepLearnPhysics/larcv2-singularity/centos7-cuda-torchnightly-mpich
 
 
 %help
@@ -21,7 +21,7 @@ singularity exec --nv THIS_CONTAINER.simg bash
 
 %labels
 Maintainer coreyjadams
-Version centos7-cuda-torchnightly-mpich3.2.1-root6.14.04
+Version centos7-cuda-torchnightly-mpich-root
 
 #------------
 # Global installation
