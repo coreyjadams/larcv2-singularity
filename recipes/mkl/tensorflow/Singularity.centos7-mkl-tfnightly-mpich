@@ -17,18 +17,12 @@ singularity exec THIS_CONTAINER.simg bash
 
 %labels
 Maintainer coreyjadams
-Version centos7-mkldnn-tf1.11.0-torch0.4.1
+Version centos7-mkldnn-tfnightly-mpich
 
 #------------
 # Global installation
 #------------
 %environment
-
-    # for ROOT
-    export ROOTSYS=/usr/local/root
-    export PATH=${ROOTSYS}/bin:${PATH}
-    export PYTHONPATH=${ROOTSYS}/lib:${PYTHONPATH}
-    export LD_LIBRARY_PATH=/usr/local/root/lib/:$LD_LIBRARY_PATH
 
     # for MPICH:
     export PATH=/usr/local/mpich/install/bin/:$PATH
@@ -36,15 +30,6 @@ Version centos7-mkldnn-tf1.11.0-torch0.4.1
 
 %post
 
-    # yum
-    yum update -y
-    yum groupinstall -y "Development Tools"
-    yum install -y epel-release
-    yum install -y wget emacs vim 
-    yum install -y PyQt4 PyQt4-devel
-    yum install -y emacs vim openssh-clients zip 
-    yum install -y python-devel python-pip  python-setuptools
-    yum install -y hdf5
 
     # install MPICH
     wget -q http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
@@ -59,7 +44,6 @@ Version centos7-mkldnn-tf1.11.0-torch0.4.1
     # add to local environment to build pi.c
     export PATH=$PATH:/usr/local/mpich//install/bin
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/mpich//install/lib
-    env | sort
     cd ..
     rm -rf mpich-3.2.1
 

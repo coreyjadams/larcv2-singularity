@@ -1,0 +1,39 @@
+Bootstrap: docker
+From: intelaipg/intel-optimized-tensorflow:nightly-devel-mkl-py3
+
+
+%help
+Centos7 with mkl_dnn tensorflow
+ML/DL packages  : tensorflow sc-learn
+Sci.  packages  : numpy pandas sc-image matplotlib opencv-python
+Basic python    : ipython jupyter yaml pygments six zmq wheel h5py tqdm
+Development kit : g++/gcc cython libqt4-dev python-dev
+Utility kit     : git wget emacs vim openssh-client
+
+To start your container simply try
+singularity exec THIS_CONTAINER.simg bash
+
+%labels
+Maintainer coreyjadams
+Version centos7-mkldnn-tfnightly
+
+#------------
+# Global installation
+#------------
+%environment
+    
+
+%post
+    
+    
+    
+    # pip basics
+    pip --no-cache-dir --disable-pip-version-check install --upgrade setuptools 
+    pip --no-cache-dir --disable-pip-version-check install pyyaml cython psutil humanize tqdm scipy seaborn tables
+    pip --no-cache-dir --disable-pip-version-check install scikit-image Pillow opencv-python
+    pip --no-cache-dir --disable-pip-version-check install jupyter notebook
+
+
+    # Intel includes tensorflow, but not keras:
+    # keras
+    pip --no-cache-dir --disable-pip-version-check install keras
