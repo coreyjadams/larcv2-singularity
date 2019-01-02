@@ -44,7 +44,7 @@ Version centos7-devel-base
     yum install -y emacs vim openssh-clients zip 
     yum install -y python-devel python-pip python-setuptools
     yum install -y hdf5
-
+    yum install -y java-1.8.0-openjdk-devel
 
     # pip basics
     pip --no-cache-dir --disable-pip-version-check install --upgrade setuptools 
