@@ -1,5 +1,5 @@
 Bootstrap: shub
-From: coreyjadams/larcv2-singularity:centos7-cuda-torchnightly
+From: coreyjadams/larcv2-singularity:centos7-cuda-torch
 
 #Bootstrap: localimage
 #From: /home/cadams/DeepLearnPhysics/larcv2-singularity/centos7-cuda-torchnightly
