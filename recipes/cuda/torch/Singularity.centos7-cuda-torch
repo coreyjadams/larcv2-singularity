@@ -37,9 +37,11 @@ Version centos7-cuda-torchnightly
     ./configure
     make -j install
 
-    pip --no-cache-dir --disable-pip-version-check install torch
-    pip --no-cache-dir --disable-pip-version-check install torchvision
+
+    scl enable rh-python36 bash
+    pip3 --no-cache-dir --disable-pip-version-check install torch
+    pip3 --no-cache-dir --disable-pip-version-check install torchvision
 
     # This is for tensorboardX
-    pip --disable-pip-version-check --no-cache-dir install tensorboardX
+    pip3 --disable-pip-version-check --no-cache-dir install tensorboardX
 
