@@ -40,8 +40,8 @@ Version centos7-cuda-core
     yum update -y
     yum groupinstall -y "Development Tools"
     # Install gcc, python36,etc:
-    yum install -y epel-release
     yum install -y centos-release-scl
+    yum install -y epel-release
     yum install -y devtoolset-4
 
     # Python36
