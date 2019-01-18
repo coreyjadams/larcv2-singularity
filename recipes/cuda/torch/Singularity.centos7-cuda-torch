@@ -1,5 +1,5 @@
-Bootstrap: docker
-From: nvidia/cuda:9.0-cudnn7-devel-centos7
+Bootstrap: shub
+From: coreyjadams/larcv2-singularity:centos7-cuda-core
 
 %help
 Centos7 with cuda9.0 cudnn7
@@ -23,30 +23,9 @@ Version centos7-cuda-torchnightly
 # Global installation
 #------------
 %environment
-    
-    # for system
-    export CUDA_DEVICE_ORDER=PCI_BUS_ID
-
-    # Add cupti to the path for profiling:
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
-
-    source scl_source enable devtoolset-4
 
 %post
     
-    # yum basics
-    yum update -y
-    yum groupinstall -y "Development Tools"
-    yum install -y epel-release
-    yum install -y centos-release-scl
-    yum install -y devtoolset-4
-    # source scl_source enable devtoolset-4
-    yum install -y wget emacs vim 
-    yum install -y emacs vim openssh-clients zip 
-    yum install -y python-devel python-pip python-setuptools
-    yum install -y hdf5
-
-
     # Using the app area to store software:
     mkdir /app
     cd /app
@@ -57,19 +36,6 @@ Version centos7-cuda-torchnightly
     cd sparsehash
     ./configure
     make -j install
-
-
-
-    # pip basics
-    pip --no-cache-dir --disable-pip-version-check install --upgrade setuptools 
-    pip --no-cache-dir --disable-pip-version-check install future
-    pip --no-cache-dir --disable-pip-version-check install 'matplotlib<3.0' # for python2.7
-    pip --no-cache-dir --disable-pip-version-check install 'ipython<6.0'    # for python2.7
-    pip --no-cache-dir --disable-pip-version-check install 'ipykernel<5.0'  # for python2.7
-    pip --no-cache-dir --disable-pip-version-check install numpy wheel zmq six pygments pyyaml cython gputil psutil humanize h5py tqdm scipy seaborn tables
-    pip --no-cache-dir --disable-pip-version-check install  pandas scikit-image scikit-learn Pillow opencv-python
-    pip --no-cache-dir --disable-pip-version-check install jupyter notebook
-
 
     pip --no-cache-dir --disable-pip-version-check install torch
     pip --no-cache-dir --disable-pip-version-check install torchvision
