@@ -39,6 +39,7 @@ Version centos7-cuda-torchnightly-mpich
 %post
 
     scl enable devtoolset-4 bash
+    scl enable rh-python36
 
     # install MPICH
     wget -q http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
@@ -68,7 +69,7 @@ Version centos7-cuda-torchnightly-mpich
 
 
     # Add mpi4py and horovod:
-    pip --no-cache-dir --disable-pip-version-check install mpi4py
+    pip3 --no-cache-dir --disable-pip-version-check install mpi4py
 
 
     # Workaround to build horovod without needing cuda libraries available:
@@ -76,7 +77,7 @@ Version centos7-cuda-torchnightly-mpich
 #    ldconfig /usr/local/cuda/lib64/stubs
 
     # install Horovod, add other HOROVOD_* environment variables as necessary
-#    HOROVOD_GPU_ALLREDUCE=NCCL HOROVOD_WITH_PYTORCH=1 HOROVOD_NCCL_HOME=/nccl/build/ pip install --no-cache-dir horovod
+#    HOROVOD_GPU_ALLREDUCE=NCCL HOROVOD_WITH_PYTORCH=1 HOROVOD_NCCL_HOME=/nccl/build/ pip3 install --no-cache-dir horovod
 
     # revert to standard libraries
 #    ldconfig
