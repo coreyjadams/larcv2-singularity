@@ -71,8 +71,8 @@ Version centos7-cuda-torchnightly
     pip --no-cache-dir --disable-pip-version-check install jupyter notebook
 
 
-    pip --disable-pip-version-check install torch torchvision
-
+    pip --no-cache-dir --disable-pip-version-check install torch
+    pip --no-cache-dir --disable-pip-version-check install torchvision
 
     # This is for tensorboardX
     pip --disable-pip-version-check --no-cache-dir install tensorboardX
