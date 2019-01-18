@@ -3,9 +3,9 @@ From: coreyjadams/larcv2-singularity:centos7-cuda-torch-mpich
 
 
 %help
-Centos7 with cuda9.0 cudnn7
-ML/DL packages  : tensorflow keras sc-learn nccl
-Sci.  packages  : numpy pandas sc-image matplotlib opencv-python ROOT
+Centos7 with cuda9.0 cudnn7, larcv
+ML/DL packages  : torch keras sc-learn nccl
+Sci.  packages  : numpy pandas sc-image matplotlib opencv-python ROOT larcv
 Basic python    : ipython jupyter yaml pygments six zmq wheel h5py tqdm mpi4py horovod
 Development kit : g++/gcc cython nvcc libqt4-dev python-dev
 Utility kit     : git wget emacs vim openssh-client mpich
