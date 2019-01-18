@@ -31,6 +31,8 @@ Version centos7-cuda-tf1.12.0-mpich3.2.1-root6.14.04
     export PYTHONPATH=${ROOTSYS}/lib:${PYTHONPATH}
     export LD_LIBRARY_PATH=/usr/local/root/lib/:${LD_LIBRARY_PATH}
 
+    source /app/larcv2/configure.sh -q
+
 %post
 
     # ROOT
@@ -43,4 +45,11 @@ Version centos7-cuda-tf1.12.0-mpich3.2.1-root6.14.04
     export LD_LIBRARY_PATH=${ROOTSYS}/lib:${LD_LIBRARY_PATH}
     export PYTHONPATH=${ROOTSYS}/lib:${PYTHONPATH}
 
+    scl enable devtoolset-4 bash
 
+    # larcv2
+    mkdir /app
+    cd /app
+    git clone https://github.com/DeepLearnPhysics/larcv2
+    source larcv2/configure.sh
+    cd $LARCV_BASEDIR && make -j4

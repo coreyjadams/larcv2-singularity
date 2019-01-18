@@ -35,6 +35,7 @@ Version centos7-cuda-tf1.12.0-mpich3.2.1
 
 %post
 
+    scl enable devtoolset-4 bash
 
     # install MPICH
     wget -q http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
