@@ -53,15 +53,18 @@ Version centos7-cuda-core
     yum install -y emacs vim openssh-clients zip 
     yum install -y hdf5
 
-    ## pip basics
-    #pip3 --no-cache-dir --disable-pip-version-check install --upgrade setuptools 
-    #pip3 --no-cache-dir --disable-pip-version-check install future
-    #pip3 --no-cache-dir --disable-pip-version-check install 'matplotlib' 
-    #pip3 --no-cache-dir --disable-pip-version-check install 'ipython'    
-    #pip3 --no-cache-dir --disable-pip-version-check install 'ipykernel'  
-    #pip3 --no-cache-dir --disable-pip-version-check install numpy wheel zmq six pygments pyyaml cython gputil psutil humanize h5py tqdm scipy seaborn tables
-    #pip3 --no-cache-dir --disable-pip-version-check install  pandas scikit-image scikit-learn Pillow opencv-python
-    #pip3 --no-cache-dir --disable-pip-version-check install jupyter notebook
+    # pip basics
+    # Need to enable pip3 with scl
+    scl enable rh-python36 bash
+
+    pip3 --no-cache-dir --disable-pip-version-check install --upgrade setuptools 
+    pip3 --no-cache-dir --disable-pip-version-check install future
+    pip3 --no-cache-dir --disable-pip-version-check install 'matplotlib' 
+    pip3 --no-cache-dir --disable-pip-version-check install 'ipython'    
+    pip3 --no-cache-dir --disable-pip-version-check install 'ipykernel'  
+    pip3 --no-cache-dir --disable-pip-version-check install numpy wheel zmq six pygments pyyaml cython gputil psutil humanize h5py tqdm scipy seaborn tables
+    pip3 --no-cache-dir --disable-pip-version-check install  pandas scikit-image scikit-learn Pillow opencv-python
+    pip3 --no-cache-dir --disable-pip-version-check install jupyter notebook
 
 
 
