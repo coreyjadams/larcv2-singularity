@@ -33,7 +33,6 @@ Version centos7-cuda-torchnightly-mpich-root
 
     source /app/larcv2/configure.sh -q
 
-
 %post
 
     # ROOT
@@ -46,6 +45,7 @@ Version centos7-cuda-torchnightly-mpich-root
     export LD_LIBRARY_PATH=${ROOTSYS}/lib:${LD_LIBRARY_PATH}
     export PYTHONPATH=${ROOTSYS}/lib:${PYTHONPATH}
 
+    scl enable devtoolset-4 bash
 
     # larcv2
     cd /app

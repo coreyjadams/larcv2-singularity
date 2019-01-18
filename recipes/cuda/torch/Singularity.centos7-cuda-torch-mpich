@@ -38,6 +38,7 @@ Version centos7-cuda-torchnightly-mpich
 
 %post
 
+    scl enable devtoolset-4 bash
 
     # install MPICH
     wget -q http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
