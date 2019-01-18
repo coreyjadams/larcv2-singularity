@@ -47,6 +47,10 @@ Version centos7-cuda-tf1.12.0-mpich3.2.1
     # keras
     pip3 --no-cache-dir --disable-pip-version-check install keras
 
+    # For linking horovod:
+    export PATH=$PATH:/usr/local/mpich//install/bin
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/mpich//install/lib
+
     # Workaround to build horovod without needing cuda libraries available:
     # temporary add stub drivers to ld.so.cache
     ldconfig /usr/local/cuda/lib64/stubs
