@@ -1,5 +1,5 @@
 Bootstrap: shub
-From: coreyjadams/larcv2-singularity:centos7-cuda-tf
+From: coreyjadams/larcv2-singularity:centos7-cuda-core-mpich
 
 
 %help
@@ -37,38 +37,15 @@ Version centos7-cuda-tf1.12.0-mpich3.2.1
 
     scl enable devtoolset-4 bash
     # This makes sure horovod gets installed properly
-    scl enable rh-python36
+    scl enable rh-python36 bash
 
-    # install MPICH
-    wget -q http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
-    tar xf mpich-3.2.1.tar.gz
-    rm mpich-3.2.1.tar.gz
-    cd mpich-3.2.1
-    # disable the addition of the RPATH to compiled executables
-    # this allows us to override the MPI libraries to use those
-    # found via LD_LIBRARY_PATH
-    ./configure --prefix=/usr/local/mpich/install --disable-wrapper-rpath
-    make -j 4 install
-    # add to local environment to build pi.c
-    export PATH=$PATH:/usr/local/mpich//install/bin
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/mpich//install/lib
-    env | sort
-    cd ..
-    rm -rf mpich-3.2.1
+    
+    # tensorflow    
+    pip3 --no-cache-dir --disable-pip-version-check install --upgrade tensorflow-gpu==1.12.0
+    pip3 --no-cache-dir --disable-pip-version-check install tensorboard
 
-
-    # nccl2
-    git clone https://github.com/NVIDIA/nccl.git
-    cd nccl;
-    make -j src.build
-    make pkg.redhat.build
-    rpm -i build/pkg/rpm/x86_64/libnccl* 
-    cd -
-
-
-    # Add mpi4py and horovod:
-    pip3 --no-cache-dir --disable-pip-version-check install mpi4py
-
+    # keras
+    pip3 --no-cache-dir --disable-pip-version-check install keras
 
     # Workaround to build horovod without needing cuda libraries available:
     # temporary add stub drivers to ld.so.cache
