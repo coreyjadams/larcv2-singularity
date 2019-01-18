@@ -1,5 +1,5 @@
 Bootstrap: shub
-From: coreyjadams/larcv2-singularity:centos7-tf-mpi
+From: coreyjadams/larcv2-singularity:centos7-tf-mpich
 
 
 %help
