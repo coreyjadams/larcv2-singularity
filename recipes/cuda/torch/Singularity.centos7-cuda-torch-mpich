@@ -62,6 +62,19 @@ Version centos7-cuda-torchnightly-mpich
     pip3 --disable-pip-version-check --no-cache-dir install tensorboardX
 
 
+    # This is a mild hack, but it allows me to install the cuda-built versions
+    # of SparseConvNet and Horovod without having cuda available at build time.
+
+    # I made the container without these, built the wheel files, uploaded to github,
+    # and then added the prebuilt binaries to this recipe for installation.
+
+    # Definitely a bootstrap method, and not easily maintained since the build is by hand.
+
+    # Download the prebuilt binary:
+    wget https://github.com/coreyjadams/larcv2-singularity/raw/centos/wheels/cuda/pytorch/sparseconvnet-0.2-cp36-cp36m-linux_x86_64.whl
+    pip3 install sparseconvnet-0.2-cp36-cp36m-linux_x86_64.whl
+    rm sparseconvnet-0.2-cp36-cp36m-linux_x86_64.whl
+
     # Workaround to build horovod without needing cuda libraries available:
     # temporary add stub drivers to ld.so.cache
 #    ldconfig /usr/local/cuda/lib64/stubs
