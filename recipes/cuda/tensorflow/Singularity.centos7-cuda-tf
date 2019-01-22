@@ -36,4 +36,3 @@ Version centos7-cuda-tf
 
     # keras
     pip3 --no-cache-dir --disable-pip-version-check install keras
-
