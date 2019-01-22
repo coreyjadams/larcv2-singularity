@@ -53,3 +53,4 @@ Version centos7-cuda-tf1.12.0-mpich3.2.1-root6.14.04
     git clone https://github.com/DeepLearnPhysics/larcv2
     source larcv2/configure.sh
     cd $LARCV_BASEDIR && make -j4
+    
