@@ -39,7 +39,7 @@ Version centos7-cuda-torchnightly
     ./configure
     make -j install
 
-   # This is a mild hack, but it allows me to install the cuda-built versions
+    # This is a mild hack, but it allows me to install the cuda-built versions
     # of SparseConvNet and Horovod without having cuda available at build time.
 
     # I made the container without these, built the wheel files, uploaded to github,

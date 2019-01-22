@@ -75,14 +75,21 @@ Version centos7-cuda-torchnightly-mpich
     pip3 install sparseconvnet-0.2-cp36-cp36m-linux_x86_64.whl
     rm sparseconvnet-0.2-cp36-cp36m-linux_x86_64.whl
 
-    # Workaround to build horovod without needing cuda libraries available:
-    # temporary add stub drivers to ld.so.cache
-#    ldconfig /usr/local/cuda/lib64/stubs
-
-    # install Horovod, add other HOROVOD_* environment variables as necessary
-#    HOROVOD_GPU_ALLREDUCE=NCCL HOROVOD_WITH_PYTORCH=1 HOROVOD_NCCL_HOME=/nccl/build/ pip3 install --no-cache-dir horovod
-
-    # revert to standard libraries
-#    ldconfig
 
 
+    # Download prebuilt libraries for horovod:
+    wget https://github.com/coreyjadams/larcv2-singularity/raw/centos/wheels/cuda/pytorch/cffi-1.11.5-cp36-cp36m-manylinux1_x86_64.whl
+    wget https://github.com/coreyjadams/larcv2-singularity/raw/centos/wheels/cuda/pytorch/pycparser-2.19-py2.py3-none-any.whl
+    wget https://github.com/coreyjadams/larcv2-singularity/raw/centos/wheels/cuda/pytorch/horovod-0.15.2-cp36-cp36m-linux_x86_64.whl
+
+    pip3 install cffi-1.11.5-cp36-cp36m-manylinux1_x86_64.whl
+    rm cffi-1.11.5-cp36-cp36m-manylinux1_x86_64.whl
+
+    pip3 install pycparser-2.19-py2.py3-none-any.whl
+    rm pycparser-2.19-py2.py3-none-any.whl
+
+    pip3 install horovod-0.15.2-cp36-cp36m-linux_x86_64.whl
+    rm horovod-0.15.2-cp36-cp36m-linux_x86_64.whl
+
+
+    # Done!
