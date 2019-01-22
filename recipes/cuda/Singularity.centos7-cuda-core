@@ -49,7 +49,7 @@ Version centos7-cuda-core
 
 
     # Common development tools:
-    yum install -y wget emacs vim 
+    yum install -y wget emacs vim cmake
     yum install -y emacs vim openssh-clients zip 
     yum install -y hdf5
 
