@@ -31,6 +31,8 @@ Version centos7-cuda-torchnightly
     cd /app
 
     scl enable devtoolset-4 bash
+    scl enable rh-python36 bash
+
     # Install the necessary hash functions:
     git clone https://github.com/sparsehash/sparsehash.git
     cd sparsehash
@@ -51,7 +53,7 @@ Version centos7-cuda-torchnightly
     rm sparseconvnet-0.2-cp36-cp36m-linux_x86_64.whl
 
 
-    
+
     scl enable rh-python36 bash
     pip3 --no-cache-dir --disable-pip-version-check install torch
     pip3 --no-cache-dir --disable-pip-version-check install torchvision
