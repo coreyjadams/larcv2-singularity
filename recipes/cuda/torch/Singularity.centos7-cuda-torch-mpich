@@ -38,6 +38,10 @@ Version centos7-cuda-torchnightly-mpich
     scl enable devtoolset-4 bash
     scl enable rh-python36 bash
     
+    # This is a dependency for building horovod from source
+    yum install -y eigen3-devel
+
+
     # Using the app area to store software:
     mkdir /app
     cd /app
