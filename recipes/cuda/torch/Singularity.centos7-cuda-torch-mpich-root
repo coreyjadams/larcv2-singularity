@@ -52,3 +52,4 @@ Version centos7-cuda-torchnightly-mpich-root
     git clone https://github.com/DeepLearnPhysics/larcv2
     source larcv2/configure.sh
     cd $LARCV_BASEDIR && make -j4
+    
