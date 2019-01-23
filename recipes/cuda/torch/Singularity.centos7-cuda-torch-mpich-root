@@ -101,6 +101,8 @@ Version centos7-cuda-torchnightly-mpich-root
 
     make -j install
 
+    # Set up root to build larcv
+    source /usr/local/root/bin/thisroot.sh
 
     # larcv2
     cd /app
