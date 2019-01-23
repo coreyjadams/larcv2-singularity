@@ -1,5 +1,5 @@
 Bootstrap: shub
-From: coreyjadams/larcv2-singularity:centos7-cuda-core-mpich
+From: coreyjadams/larcv2-singularity:centos7-cuda-core-mpich-py36
 
 
 %help
@@ -18,7 +18,7 @@ singularity exec --nv THIS_CONTAINER.simg bash
 
 %labels
 Maintainer coreyjadams
-Version centos7-cuda-torch-mpich
+Version centos7-cuda-torch-mpich-py36
 
 #------------
 # Global installation
@@ -36,6 +36,7 @@ Version centos7-cuda-torch-mpich
 %post
 
     scl enable devtoolset-4 bash
+    scl enable rh-python36 bash
     
     # This is a dependency for building horovod from source
     yum install -y eigen3-devel
@@ -45,6 +46,7 @@ Version centos7-cuda-torch-mpich
     mkdir /app
     cd /app
 
+    scl enable devtoolset-4 bash
     # Install the necessary hash functions:
     git clone https://github.com/sparsehash/sparsehash.git
     cd sparsehash
@@ -52,11 +54,11 @@ Version centos7-cuda-torch-mpich
     make -j install
 
 
-    pip --no-cache-dir --disable-pip-version-check install torch
-    pip --no-cache-dir --disable-pip-version-check install torchvision
+    pip3 --no-cache-dir --disable-pip-version-check install torch
+    pip3 --no-cache-dir --disable-pip-version-check install torchvision
 
     # This is for tensorboardX
-    pip --disable-pip-version-check --no-cache-dir install tensorboardX
+    pip3 --disable-pip-version-check --no-cache-dir install tensorboardX
 
 
     # This is a mild hack, but it allows me to install the cuda-built versions
@@ -69,7 +71,7 @@ Version centos7-cuda-torch-mpich
 
     # Download the prebuilt binary:
     wget https://github.com/coreyjadams/larcv2-singularity/raw/centos/wheels/cuda/pytorch/sparseconvnet-0.2-cp36-cp36m-linux_x86_64.whl
-    pip install sparseconvnet-0.2-cp36-cp36m-linux_x86_64.whl
+    pip3 install sparseconvnet-0.2-cp36-cp36m-linux_x86_64.whl
     rm sparseconvnet-0.2-cp36-cp36m-linux_x86_64.whl
 
 
@@ -79,13 +81,13 @@ Version centos7-cuda-torch-mpich
     wget https://github.com/coreyjadams/larcv2-singularity/raw/centos/wheels/cuda/pytorch/pycparser-2.19-py2.py3-none-any.whl
     wget https://github.com/coreyjadams/larcv2-singularity/raw/centos/wheels/cuda/pytorch/horovod-0.15.2-cp36-cp36m-linux_x86_64.whl
 
-    pip install cffi-1.11.5-cp36-cp36m-manylinux1_x86_64.whl
+    pip3 install cffi-1.11.5-cp36-cp36m-manylinux1_x86_64.whl
     rm cffi-1.11.5-cp36-cp36m-manylinux1_x86_64.whl
 
-    pip install pycparser-2.19-py2.py3-none-any.whl
+    pip3 install pycparser-2.19-py2.py3-none-any.whl
     rm pycparser-2.19-py2.py3-none-any.whl
 
-    pip install horovod-0.15.2-cp36-cp36m-linux_x86_64.whl
+    pip3 install horovod-0.15.2-cp36-cp36m-linux_x86_64.whl
     rm horovod-0.15.2-cp36-cp36m-linux_x86_64.whl
 
 

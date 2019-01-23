@@ -1,5 +1,5 @@
 Bootstrap: shub
-From: coreyjadams/larcv2-singularity:centos7-cuda-core
+From: coreyjadams/larcv2-singularity:centos7-cuda-core-py36
 
 
 
@@ -19,7 +19,7 @@ singularity exec --nv THIS_CONTAINER.simg bash
 
 %labels
 Maintainer coreyjadams
-Version centos7-cuda-core-mpich
+Version centos7-cuda-core-mpich-py36
 
 #------------
 # Global installation
