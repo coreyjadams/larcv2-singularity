@@ -55,8 +55,9 @@ Version centos7-cuda-core
 
     pip --no-cache-dir --disable-pip-version-check install --upgrade setuptools 
     pip --no-cache-dir --disable-pip-version-check install future
-    pip --no-cache-dir --disable-pip-version-check install numpy wheel zmq six pygments pyyaml cython gputil psutil humanize h5py tqdm scipy seaborn tables
-    pip --no-cache-dir --disable-pip-version-check install  pandas scikit-image scikit-learn Pillow opencv-python
+    pip --no-cache-dir --disable-pip-version-check install numpy h5py 
+    # pip --no-cache-dir --disable-pip-version-check install wheel zmq six pygments pyyaml cython gputil psutil humanize tqdm scipy seaborn tables
+    # pip --no-cache-dir --disable-pip-version-check install  pandas scikit-image scikit-learn Pillow opencv-python
     # pip --no-cache-dir --disable-pip-version-check install jupyter notebook
 
 
