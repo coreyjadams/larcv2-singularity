@@ -42,6 +42,7 @@ Version centos7-cuda-core
     yum install -y centos-release-scl
     yum install -y epel-release
     yum install -y devtoolset-4
+    yum install -y python27-python-pip
 
 
 
@@ -56,7 +57,7 @@ Version centos7-cuda-core
     pip --no-cache-dir --disable-pip-version-check install future
     pip --no-cache-dir --disable-pip-version-check install numpy wheel zmq six pygments pyyaml cython gputil psutil humanize h5py tqdm scipy seaborn tables
     pip --no-cache-dir --disable-pip-version-check install  pandas scikit-image scikit-learn Pillow opencv-python
-    pip --no-cache-dir --disable-pip-version-check install jupyter notebook
+    # pip --no-cache-dir --disable-pip-version-check install jupyter notebook
 
 
 
