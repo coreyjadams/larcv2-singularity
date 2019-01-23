@@ -53,7 +53,7 @@ Version centos7-cuda-torchnightly-mpich-root
     rm root_v6.14.06.source.tar.gz
     mkdir root_build
     cd root_build
-    cmake ../root-6.14.06/ \
+    cmake3 ../root-6.14.06/ \
     -DPYTHIA6=OFF \
     -DALIEN=OFF \
     -DASIMAGE=OFF \ 
