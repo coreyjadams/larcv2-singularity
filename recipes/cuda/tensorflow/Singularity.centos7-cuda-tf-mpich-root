@@ -40,7 +40,7 @@ Version centos7-cuda-tf1.12.0-mpich3.2.1-root6.14.04
     scl enable rh-python36 bash
 
     # Root requirements for build:
-    yum install cmake \
+    yum install -y cmake \
     libX11-devel libXpm-devel libXft-devel libXext-devel
 
     # ROOT optional prereqs
