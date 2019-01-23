@@ -25,13 +25,13 @@ Version centos7-cuda-torchnightly-mpich-root
 #------------
 %environment
  
-    # for ROOT
-    export ROOTSYS=/usr/local/root
-    export PATH=${ROOTSYS}/bin:${PATH}
-    export PYTHONPATH=${ROOTSYS}/lib:${PYTHONPATH}
-    export LD_LIBRARY_PATH=/usr/local/root/lib/:${LD_LIBRARY_PATH}
+    # # for ROOT
+    # export ROOTSYS=/usr/local/root
+    # export PATH=${ROOTSYS}/bin:${PATH}
+    # export PYTHONPATH=${ROOTSYS}/lib:${PYTHONPATH}
+    # export LD_LIBRARY_PATH=/usr/local/root/lib/:${LD_LIBRARY_PATH}
 
-    source /app/larcv2/configure.sh -q
+    # source /app/larcv2/configure.sh -q
 
 %post
 
@@ -40,12 +40,10 @@ Version centos7-cuda-torchnightly-mpich-root
     scl enable rh-python36 bash
 
     # Root requirements for build:
-    yum install -y cmake \
-    libX11-devel libXpm-devel libXft-devel libXext-devel
+    yum install -y cmake libX11-devel libXpm-devel libXft-devel libXext-devel
 
     # ROOT optional prereqs
-    yum install -y \
-    libxml2-devel gsl-static
+    yum install -y libxml2-devel gsl-static
 
     # cd /app/
     # wget https://root.cern.ch/download/root_v6.14.06.source.tar.gz
