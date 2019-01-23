@@ -37,6 +37,7 @@ Version centos7-cuda-core-mpich
 %post
 
     scl enable devtoolset-4 bash
+    scl enable rh-python36 bash
 
     # install MPICH
     wget -q http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
@@ -66,7 +67,7 @@ Version centos7-cuda-core-mpich
 
 
     # Add mpi4py and horovod:
-    pip --no-cache-dir --disable-pip-version-check install mpi4py
+    pip3 --no-cache-dir --disable-pip-version-check install mpi4py
 
 
 
