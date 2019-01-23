@@ -47,64 +47,65 @@ Version centos7-cuda-tf1.12.0-mpich3.2.1-root6.14.04
     yum install -y \
     libxml2-devel gsl-static
 
-    cd /app/
-    wget https://root.cern.ch/download/root_v6.14.06.source.tar.gz
-    tar -xzf root_v6.14.06.source.tar.gz
-    rm root_v6.14.06.source.tar.gz
-    mkdir root_build
-    cd root_build
-    cmake3 ../root-6.14.06/ \
-    -DPYTHIA6=OFF \
-    -DALIEN=OFF \
-    -DASIMAGE=OFF \ 
-    -DASTIFF=OFF \ 
-    -DBONJOUR=OFF \
-    -DCASTOR=OFF \
-    -DCHIRP=OFF \
-    -DDAVIX=OFF \
-    -DFFTW3=OFF \
-    -DFITSIO=OFF \
-    -DFORTRAN=OFF \
-    -DGDML=OFF \
-    -DGENVECTOR=OFF \
-    -DGFAL=OFF \
-    -DGLITE=OFF \
-    -DGVIZ=OFF \
-    -DMATHMORE=OFF \
-    -DMINUIT2=OFF \
-    -DMONALISA=OFF \
-    -DMYSQL=OFF \
-    -DODBC=OFF \
-    -DOPENGL=OFF \
-    -DORACLE=OFF \
-    -DPGSQL=OFF \
-    -DPYTHIA6=OFF \
-    -DPYTHIA8=OFF \
-    -DQT=OFF \
-    -DQTGSI=OFF \
-    -DROOFIT=OFF \
-    -DRFIO=OFF \
-    -DSAPDB=OFF \
-    -DSHADOWPW=OFF \
-    -DSQLITE=OFF \
-    -DSRP=OFF \
-    -DSSL=OFF \
-    -DTABLE=OFF \
-    -DTMVA=OFF \
-    -DUNURAN=OFF \
-    -DVC=OFF \
-    -DVDT=OFF \
-    -DXFT=OFF \
-    -DXML=OFF \
-    -DXROOTD=OFF \
-    -DX11=OFF
+    # cd /app/
+    # wget https://root.cern.ch/download/root_v6.14.06.source.tar.gz
+    # tar -xzf root_v6.14.06.source.tar.gz
+    # rm root_v6.14.06.source.tar.gz
+    # mkdir root_build
+    # cd root_build
+    # cmake3 \
+    # -DPYTHIA6=OFF \
+    # -DALIEN=OFF \
+    # -DASIMAGE=OFF \ 
+    # -DASTIFF=OFF \ 
+    # -DBONJOUR=OFF \
+    # -DCASTOR=OFF \
+    # -DCHIRP=OFF \
+    # -DDAVIX=OFF \
+    # -DFFTW3=OFF \
+    # -DFITSIO=OFF \
+    # -DFORTRAN=OFF \
+    # -DGDML=OFF \
+    # -DGENVECTOR=OFF \
+    # -DGFAL=OFF \
+    # -DGLITE=OFF \
+    # -DGVIZ=OFF \
+    # -DMATHMORE=OFF \
+    # -DMINUIT2=OFF \
+    # -DMONALISA=OFF \
+    # -DMYSQL=OFF \
+    # -DODBC=OFF \
+    # -DOPENGL=OFF \
+    # -DORACLE=OFF \
+    # -DPGSQL=OFF \
+    # -DPYTHIA6=OFF \
+    # -DPYTHIA8=OFF \
+    # -DQT=OFF \
+    # -DQTGSI=OFF \
+    # -DROOFIT=OFF \
+    # -DRFIO=OFF \
+    # -DSAPDB=OFF \
+    # -DSHADOWPW=OFF \
+    # -DSQLITE=OFF \
+    # -DSRP=OFF \
+    # -DSSL=OFF \
+    # -DTABLE=OFF \
+    # -DTMVA=OFF \
+    # -DUNURAN=OFF \
+    # -DVC=OFF \
+    # -DVDT=OFF \
+    # -DXFT=OFF \
+    # -DXML=OFF \
+    # -DXROOTD=OFF \
+    # -DX11=OFF \
+    # ../root-6.14.06/
 
-    make -j install
+    # make -j install
 
-    # larcv2
-    mkdir /app
-    cd /app
-    git clone https://github.com/DeepLearnPhysics/larcv2
-    source larcv2/configure.sh
-    cd $LARCV_BASEDIR && make -j4
+    # # larcv2
+    # mkdir /app
+    # cd /app
+    # git clone https://github.com/DeepLearnPhysics/larcv2
+    # source larcv2/configure.sh
+    # cd $LARCV_BASEDIR && make -j
     
