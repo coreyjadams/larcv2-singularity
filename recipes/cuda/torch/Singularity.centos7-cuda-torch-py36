@@ -61,4 +61,3 @@ Version centos7-cuda-torch-py36
     # This is for tensorboardX
     pip3 --disable-pip-version-check --no-cache-dir install tensorboardX
 
-
