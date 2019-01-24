@@ -54,3 +54,4 @@ Version centos7-cuda-torch-mpich-py36
     source larcv2/configure.sh
     cd $LARCV_BASEDIR && make -j4
     
+    
