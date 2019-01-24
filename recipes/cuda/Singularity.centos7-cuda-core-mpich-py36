@@ -2,7 +2,6 @@ Bootstrap: shub
 From: coreyjadams/larcv2-singularity:centos7-cuda-core-py36
 
 
-
 %help
 Centos7 with cuda9.0 cudnn7, mpich, nccl
 ML/DL packages  : keras sc-learn
